@@ -1,0 +1,76 @@
+<div class="contacts-page">
+
+  <div class="page-header">
+    <h1>Contact Messages</h1>
+    <p>Messages received from website visitors.</p>
+  </div>
+
+
+  <!-- Loading -->
+
+  <div *ngIf="loading" class="message">
+    Loading messages...
+  </div>
+
+
+  <!-- Error -->
+
+  <div *ngIf="errorMessage" class="error-message">
+
+    <p>{{ errorMessage }}</p>
+
+    <button (click)="loadContacts()">
+      Try Again
+    </button>
+
+  </div>
+
+
+  <!-- Contacts -->
+
+  <div
+    class="contacts-list"
+    *ngIf="!loading && !errorMessage"
+  >
+
+    <div
+      class="contact-item"
+      *ngFor="let contact of contacts"
+    >
+
+      <div class="contact-info">
+
+        <h3>{{ contact.name }}</h3>
+
+        <p>
+          <strong>Email:</strong>
+          {{ contact.email }}
+        </p>
+
+        <p>
+          <strong>Message:</strong>
+          {{ contact.message }}
+        </p>
+
+      </div>
+
+      <button
+        type="button"
+        (click)="deleteContact(contact.id)"
+      >
+        Delete
+      </button>
+
+    </div>
+
+
+    <p
+      *ngIf="contacts.length === 0"
+      class="message"
+    >
+      No contact messages found.
+    </p>
+
+  </div>
+
+</div>

@@ -1,0 +1,99 @@
+<div class="donate-container">
+
+  <div class="donate-header">
+    <h1>Support Our Cause</h1>
+
+    <p>
+      Your contribution helps us create a better future
+      for communities in need.
+    </p>
+  </div>
+
+  <div class="donate-card">
+
+    <h2>Make a Donation</h2>
+
+    <p class="card-text">
+      Every contribution, big or small, makes a difference.
+    </p>
+
+    <form (ngSubmit)="submitDonation()">
+
+      <div class="form-group">
+        <label for="name">Full Name</label>
+
+        <input id="name" type="text" name="name" [(ngModel)]="donation.name" placeholder="Enter your name" required>
+      </div>
+
+      <div>
+        <label>Email</label>
+
+        <input type="email" name="email" [(ngModel)]="donation.email" placeholder="Enter your email"
+          [disabled]="emailVerified" required>
+
+        <button type="button" (click)="sendOTP()" [disabled]="otpLoading || emailVerified">
+          {{ otpLoading ? 'Sending OTP...' : 'Send OTP' }}
+        </button>
+      </div>
+
+      <div *ngIf="otpSent && !emailVerified">
+
+  <label>Enter OTP</label>
+
+  <input
+    type="text"
+    name="otp"
+    [(ngModel)]="otp"
+    placeholder="Enter 6-digit OTP"
+    maxlength="6"
+  >
+
+  <button
+    type="button"
+    (click)="verifyOTP()"
+    [disabled]="otpLoading"
+  >
+    {{ otpLoading ? 'Verifying...' : 'Verify OTP' }}
+  </button>
+
+  <p *ngIf="otpMessage">
+    {{ otpMessage }}
+  </p>
+  <p *ngIf="emailVerified" class="verified-message">
+  ✓ Email verified successfully
+</p>
+
+</div>
+
+      <div class="form-group">
+        <label for="amount">Donation Amount</label>
+
+        <div class="amount-input">
+          <span>₹</span>
+
+          <input id="amount" type="number" name="amount" [(ngModel)]="donation.amount" placeholder="Enter amount"
+            min="1" required>
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="loading || !emailVerified">
+        {{ loading ? 'Submitting...' : 'Donate Now' }}
+      </button>
+
+    </form>
+
+    <p class="success-message" *ngIf="successMessage">
+      {{ successMessage }}
+    </p>
+
+    <p class="error-message" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </p>
+
+  </div>
+
+  <p class="secure-text">
+    Your support helps us continue our work and reach more people.
+  </p>
+
+</div>

@@ -1,0 +1,145 @@
+<div class="ngo-page">
+
+  <!-- Header -->
+  <div class="ngo-header">
+    <h1>Discover NGOs</h1>
+
+    <p>
+      Explore organizations making a difference in communities
+      and find a cause you care about.
+    </p>
+  </div>
+
+
+  <!-- Search & Filter -->
+  <div class="ngo-controls">
+
+    <input
+      type="text"
+      class="ngo-search"
+      placeholder="Search NGOs..."
+      [(ngModel)]="searchText"
+      (input)="onSearch()"
+    >
+
+    <select
+      class="ngo-category-filter"
+      [(ngModel)]="selectedCategory"
+      (change)="onCategoryChange()"
+    >
+
+      <option value="">
+        All Categories
+      </option>
+
+      <option
+        *ngFor="let category of categories"
+        [value]="category"
+      >
+        {{ category }}
+      </option>
+
+    </select>
+
+  </div>
+
+
+  <!-- NGO Cards -->
+  <div class="ngo-grid">
+
+    <div
+      class="ngo-card"
+      *ngFor="let ngo of filteredNGOs"
+    >
+
+      <!-- Logo -->
+      <div class="ngo-logo-container">
+
+        <img
+          *ngIf="ngo.logo"
+          [src]="ngo.logo"
+          [alt]="ngo.name"
+          class="ngo-logo"
+        >
+
+        <div
+          *ngIf="!ngo.logo"
+          class="logo-placeholder"
+        >
+          NGO
+        </div>
+
+      </div>
+
+
+      <!-- Content -->
+      <div class="ngo-content">
+
+        <h2>
+          {{ ngo.name }}
+        </h2>
+
+        <span class="ngo-category">
+          {{ ngo.category }}
+        </span>
+
+        <p class="ngo-description">
+          {{ ngo.description }}
+        </p>
+
+        <p class="ngo-info">
+          📍 {{ ngo.location }}
+        </p>
+
+        <p
+          class="ngo-info"
+          *ngIf="ngo.email"
+        >
+          ✉️ {{ ngo.email }}
+        </p>
+
+
+        <!-- View -->
+        <button
+          type="button"
+          class="view-btn"
+          (click)="viewNGO(ngo.id)"
+        >
+          View NGO
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- No NGOs -->
+  <div
+    class="no-ngos"
+    *ngIf="filteredNGOs.length === 0"
+  >
+
+    <div class="no-ngos-icon">
+      🔍
+    </div>
+
+    <h3>No NGOs Found</h3>
+
+    <p *ngIf="selectedCategory">
+      No NGOs are currently available in
+      <strong>{{ selectedCategory }}</strong>.
+    </p>
+
+    <p *ngIf="!selectedCategory && searchText">
+      No NGOs match your search.
+    </p>
+
+    <p *ngIf="!selectedCategory && !searchText">
+      No NGOs are available at the moment.
+    </p>
+
+  </div>
+
+</div>

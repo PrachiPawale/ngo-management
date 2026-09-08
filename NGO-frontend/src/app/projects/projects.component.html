@@ -1,0 +1,72 @@
+<div class="projects-container">
+
+  <h1>Our Projects</h1>
+
+  <p class="intro">
+    Explore the projects and initiatives we are working on.
+  </p>
+
+
+  <!-- Loading -->
+
+  <div *ngIf="loading" class="message">
+    Loading projects...
+  </div>
+
+
+  <!-- Error -->
+
+  <div *ngIf="errorMessage" class="error-message">
+
+    <p>{{ errorMessage }}</p>
+
+    <button (click)="loadProjects()">
+      Try Again
+    </button>
+
+  </div>
+
+
+  <!-- Projects -->
+
+  <div
+    class="projects-grid"
+    *ngIf="!loading && !errorMessage"
+  >
+
+    <div
+      class="project-card"
+      *ngFor="let project of projects"
+    >
+
+      <img
+        *ngIf="project.image"
+        [src]="project.image"
+        [alt]="project.title"
+      >
+
+      <div class="project-content">
+
+        <h2>{{ project.title }}</h2>
+
+        <p>
+          {{ project.description }}
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- No Projects -->
+
+  <p
+    *ngIf="!loading && !errorMessage && projects.length === 0"
+    class="message"
+  >
+    No projects available at the moment.
+  </p>
+
+</div>

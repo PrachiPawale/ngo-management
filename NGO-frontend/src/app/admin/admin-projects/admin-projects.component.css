@@ -1,0 +1,77 @@
+.projects-page {
+  padding: 20px;
+}
+
+.page-header {
+  margin-bottom: 25px;
+}
+
+.page-header p {
+  color: #666;
+}
+
+.project-form {
+  max-width: 600px;
+  padding: 25px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 35px;
+}
+
+.project-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.project-form input,
+.project-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.project-form button,
+.project-actions button {
+  padding: 9px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.project-list {
+  max-width: 800px;
+}
+
+.project-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.project-info {
+  flex: 1;
+}
+
+.project-info p {
+  color: #666;
+}
+
+.project-actions {
+  display: flex;
+  gap: 10px;
+}
+
+@media (max-width: 700px) {
+
+  .project-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+}

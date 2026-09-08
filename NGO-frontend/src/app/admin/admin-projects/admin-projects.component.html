@@ -1,0 +1,96 @@
+<div class="projects-page">
+
+  <div class="page-header">
+    <div>
+      <h1>Manage Projects</h1>
+      <p>Add, edit or delete NGO projects.</p>
+    </div>
+  </div>
+
+  <!-- Add / Edit Form -->
+  <div class="project-form">
+
+    <h2>
+      {{ editing ? 'Edit Project' : 'Add Project' }}
+    </h2>
+
+    <form (ngSubmit)="editing ? updateProject() : addProject()">
+
+      <input
+        type="text"
+        name="title"
+        [(ngModel)]="project.title"
+        placeholder="Project title"
+        required
+      >
+
+      <textarea
+        name="description"
+        [(ngModel)]="project.description"
+        placeholder="Project description"
+        rows="4"
+        required
+      ></textarea>
+
+      <input
+        type="text"
+        name="image"
+        [(ngModel)]="project.image"
+        placeholder="Image URL"
+      >
+
+      <button type="submit">
+        {{ editing ? 'Update Project' : 'Add Project' }}
+      </button>
+
+      <button
+        *ngIf="editing"
+        type="button"
+        (click)="cancelEdit()">
+        Cancel
+      </button>
+
+    </form>
+
+  </div>
+
+
+  <!-- Project List -->
+
+  <div class="project-list">
+
+    <h2>Projects</h2>
+
+    <div
+      class="project-item"
+      *ngFor="let item of projects">
+
+      <div class="project-info">
+
+        <h3>{{ item.title }}</h3>
+
+        <p>{{ item.description }}</p>
+
+      </div>
+
+      <div class="project-actions">
+
+        <button
+          type="button"
+          (click)="editProject(item)">
+          Edit
+        </button>
+
+        <button
+          type="button"
+          (click)="deleteProject(item.id)">
+          Delete
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

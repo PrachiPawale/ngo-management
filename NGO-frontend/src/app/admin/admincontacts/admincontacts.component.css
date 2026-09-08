@@ -1,0 +1,60 @@
+.contacts-page {
+  padding: 20px;
+}
+
+.page-header {
+  margin-bottom: 30px;
+}
+
+.page-header p {
+  color: #666;
+}
+
+.contacts-list {
+  max-width: 900px;
+}
+
+.contact-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-info h3 {
+  margin-top: 0;
+}
+
+.contact-info p {
+  color: #555;
+  line-height: 1.5;
+}
+
+.contact-item button {
+  height: fit-content;
+  padding: 9px 15px;
+  border: none;
+  border-radius: 5px;
+  background: #d32f2f;
+  color: white;
+  cursor: pointer;
+}
+
+.contact-item button:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 700px) {
+
+  .contact-item {
+    flex-direction: column;
+  }
+
+}

@@ -1,0 +1,136 @@
+<div class="ngos-page">
+
+  <div class="page-header">
+    <div>
+      <h1>Manage NGOs</h1>
+    </div>
+  </div>
+
+  <!-- Add / Edit Form -->
+  <div class="ngo-form">
+
+    <h2>
+      {{ editing ? 'Edit NGO' : 'Add NGO' }}
+    </h2>
+
+    <form (ngSubmit)="editing ? updateNGO() : addNGO()">
+
+      <input
+        type="text"
+        name="name"
+        [(ngModel)]="ngo.name"
+        placeholder="NGO name"
+        required
+      >
+
+      <textarea
+        name="description"
+        [(ngModel)]="ngo.description"
+        placeholder="NGO description"
+        rows="4"
+        required
+      ></textarea>
+
+      <textarea
+        name="mission"
+        [(ngModel)]="ngo.mission"
+        placeholder="NGO mission"
+        rows="3"
+      ></textarea>
+
+      <input
+        type="text"
+        name="location"
+        [(ngModel)]="ngo.location"
+        placeholder="Location"
+      >
+
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="ngo.email"
+        placeholder="Email"
+      >
+
+      <input
+        type="text"
+        name="phone"
+        [(ngModel)]="ngo.phone"
+        placeholder="Phone"
+      >
+
+      <input
+        type="text"
+        name="category"
+        [(ngModel)]="ngo.category"
+        placeholder="Category"
+      >
+
+      <input
+        type="text"
+        name="logo"
+        [(ngModel)]="ngo.logo"
+        placeholder="Logo URL"
+      >
+
+      <button type="submit">
+        {{ editing ? 'Update NGO' : 'Add NGO' }}
+      </button>
+
+      <button
+        *ngIf="editing"
+        type="button"
+        (click)="cancelEdit()">
+        Cancel
+      </button>
+
+    </form>
+
+  </div>
+
+  <!-- NGO List -->
+  <div class="ngo-list">
+
+    <h2>NGOs</h2>
+
+    <div
+      class="ngo-item"
+      *ngFor="let item of ngos">
+
+      <div class="ngo-info">
+
+        <h3>{{ item.name }}</h3>
+
+        <p>{{ item.description }}</p>
+
+        <small>
+          {{ item.category }}
+
+          <span *ngIf="item.location">
+            • {{ item.location }}
+          </span>
+        </small>
+
+      </div>
+
+      <div class="ngo-actions">
+
+        <button
+          type="button"
+          (click)="editNGO(item)">
+          Edit
+        </button>
+
+        <button
+          type="button"
+          (click)="deleteNGO(item.id)">
+          Delete
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

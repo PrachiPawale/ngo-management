@@ -1,0 +1,173 @@
+<div class="ngo-details-page">
+
+  <!-- Back Button -->
+  <button
+    class="back-btn"
+    (click)="goBack()"
+  >
+    ← Back to NGOs
+  </button>
+
+
+  <!-- Loading -->
+  <div
+    class="loading"
+    *ngIf="loading"
+  >
+    Loading NGO details...
+  </div>
+
+
+  <!-- NGO Details -->
+  <div
+    class="ngo-details-card"
+    *ngIf="ngo && !loading"
+  >
+
+    <!-- Hero -->
+    <div class="ngo-hero">
+
+      <div class="logo-wrapper">
+
+        <img
+          *ngIf="ngo.logo"
+          [src]="ngo.logo"
+          [alt]="ngo.name"
+          class="ngo-logo"
+        >
+
+        <div
+          *ngIf="!ngo.logo"
+          class="logo-placeholder"
+        >
+          NGO
+        </div>
+
+      </div>
+
+      <div class="hero-content">
+
+        <span class="category">
+          {{ ngo.category }}
+        </span>
+
+        <h1>
+          {{ ngo.name }}
+        </h1>
+
+        <p>
+          {{ ngo.description }}
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- Main Content -->
+    <div class="ngo-content">
+
+      <!-- About -->
+      <section>
+        <h2>About the NGO</h2>
+
+        <p>
+          {{ ngo.description }}
+        </p>
+      </section>
+
+
+      <!-- Mission -->
+      <section *ngIf="ngo.mission">
+
+        <h2>Our Mission</h2>
+
+        <p>
+          {{ ngo.mission }}
+        </p>
+
+      </section>
+
+
+      <!-- Contact -->
+      <section>
+
+        <h2>Contact Information</h2>
+
+        <div class="contact-info">
+
+          <div *ngIf="ngo.location">
+            <span>📍</span>
+            <div>
+              <strong>Location</strong>
+              <p>{{ ngo.location }}</p>
+            </div>
+          </div>
+
+          <div *ngIf="ngo.email">
+            <span>✉️</span>
+            <div>
+              <strong>Email</strong>
+              <p>{{ ngo.email }}</p>
+            </div>
+          </div>
+
+          <div *ngIf="ngo.phone">
+            <span>📞</span>
+            <div>
+              <strong>Phone</strong>
+              <p>{{ ngo.phone }}</p>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- Action -->
+      <div class="ngo-actions">
+
+        <button
+          class="donate-btn"
+          (click)="donate()"
+        >
+          Support This NGO
+        </button>
+
+        <button
+          class="back-btn-bottom"
+          (click)="goBack()"
+        >
+          Explore Other NGOs
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- NGO Not Found -->
+  <div
+    class="not-found"
+    *ngIf="!ngo && !loading"
+  >
+
+    <h2>NGO Not Found</h2>
+
+    <p>
+      We couldn't find the NGO you're looking for.
+    </p>
+
+    <button
+      class="donate-btn"
+      (click)="goBack()"
+    >
+      Back to NGOs
+    </button>
+
+  </div>
+
+</div>

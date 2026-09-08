@@ -1,0 +1,37 @@
+<div class="admin-layout">
+
+  <aside class="sidebar">
+
+    <h2>NGO Admin</h2>
+
+    <a routerLink="/admin/dashboard">
+      Dashboard
+    </a>
+
+    <a routerLink="/admin/projects">
+      Projects
+    </a>
+
+    <a routerLink="/admin/contacts">
+      Contacts
+    </a>
+
+    <a routerLink="/admin/donations">
+      Donations
+    </a>
+
+    <a routerLink="/admin/admin-ngo">NGO</a>
+
+    <button (click)="logout()">
+      Logout
+    </button>
+
+  </aside>
+
+  <main class="admin-content">
+
+    <router-outlet></router-outlet>
+
+  </main>
+
+</div>

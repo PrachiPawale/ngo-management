@@ -1,0 +1,91 @@
+.ngos-page {
+  padding: 20px;
+}
+
+.page-header {
+  margin-bottom: 25px;
+}
+
+.page-header p {
+  color: #666;
+}
+
+.ngo-form {
+  max-width: 600px;
+  padding: 25px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 35px;
+}
+
+.ngo-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ngo-form input,
+.ngo-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.ngo-form textarea {
+  resize: vertical;
+}
+
+.ngo-form button,
+.ngo-actions button {
+  padding: 9px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.ngo-list {
+  max-width: 800px;
+}
+
+.ngo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.ngo-info {
+  flex: 1;
+}
+
+.ngo-info h3 {
+  margin-top: 0;
+}
+
+.ngo-info p {
+  color: #666;
+}
+
+.ngo-info small {
+  color: #888;
+}
+
+.ngo-actions {
+  display: flex;
+  gap: 10px;
+}
+
+@media (max-width: 700px) {
+
+  .ngo-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+}

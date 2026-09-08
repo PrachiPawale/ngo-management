@@ -1,0 +1,57 @@
+<div class="contact-container">
+
+  <h1>Contact Us</h1>
+
+  <form (ngSubmit)="submitContactForm()">
+
+    <div>
+      <label>Name</label>
+
+      <input
+        type="text"
+        name="name"
+        [(ngModel)]="contact.name"
+        placeholder="Enter your name"
+      >
+    </div>
+
+    <div>
+      <label>Email</label>
+
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="contact.email"
+        placeholder="Enter your email"
+      >
+    </div>
+
+    <div>
+      <label>Message</label>
+
+      <textarea
+        name="message"
+        [(ngModel)]="contact.message"
+        placeholder="Enter your message"
+        rows="5"
+      ></textarea>
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="loading"
+    >
+      {{ loading ? 'Sending...' : 'Send Message' }}
+    </button>
+
+  </form>
+
+  <p *ngIf="successMessage">
+    {{ successMessage }}
+  </p>
+
+  <p *ngIf="errorMessage">
+    {{ errorMessage }}
+  </p>
+
+</div>

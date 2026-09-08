@@ -1,0 +1,372 @@
+/* =========================
+   DONATION CONTAINER
+========================= */
+
+.donate-container {
+  width: 100%;
+  max-width: 620px;
+
+  margin: 60px auto;
+  padding: 45px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #e8e8e8;
+  border-radius: 18px;
+
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.donate-container h1 {
+  margin: 0 0 12px;
+
+  text-align: center;
+
+  color: #17212b;
+
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+}
+
+.donate-container>p {
+  margin: 0 auto 35px;
+
+  max-width: 500px;
+
+  text-align: center;
+
+  color: #66717c;
+
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.donate-container form {
+  width: 100%;
+}
+
+.donate-container form>div {
+  margin-bottom: 22px;
+}
+
+
+/* =========================
+   LABELS
+========================= */
+
+.donate-container label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #263238;
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+
+/* =========================
+   INPUTS
+========================= */
+
+.donate-container input {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 14px 16px;
+
+  border: 1px solid #d6dce1;
+  border-radius: 9px;
+
+  background: #fafbfc;
+
+  color: #222;
+
+  font-size: 15px;
+
+  outline: none;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.donate-container input:focus {
+  background: #ffffff;
+
+  border-color: #1976d2;
+
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.12);
+}
+
+.donate-container input::placeholder {
+  color: #9aa3ab;
+}
+
+
+/* =========================
+   EMAIL + OTP SECTION
+========================= */
+
+.donate-container input[name="email"] {
+  margin-bottom: 10px;
+}
+
+.donate-container input[name="otp"] {
+  letter-spacing: 5px;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  text-align: center;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.donate-container button {
+  width: 100%;
+
+  padding: 14px 20px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: linear-gradient(135deg,
+      #1976d2,
+      #125ca3);
+
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.donate-container button:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  box-shadow: 0 7px 18px rgba(25, 118, 210, 0.25);
+}
+
+.donate-container button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.donate-container button:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+
+  box-shadow: none;
+}
+
+
+/* =========================
+   OTP BUTTON
+========================= */
+
+.donate-container button[type="button"] {
+  margin-top: 8px;
+
+  padding: 12px 18px;
+
+  background: #1976d2;
+}
+
+.donate-container button[type="button"]:hover:not(:disabled) {
+  background: #125ca3;
+}
+
+
+/* =========================
+   VERIFIED MESSAGE
+========================= */
+
+.verified-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 12px 0 22px;
+
+  padding: 12px 15px;
+
+  background: #ecf8ef;
+
+  border: 1px solid #b9e4c2;
+
+  border-radius: 9px;
+
+  color: #237a36;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* =========================
+   OTP MESSAGE
+========================= */
+
+.donate-container p {
+  color: #555;
+}
+
+.donate-container p[ng-reflect-ng-if] {
+  margin-top: 10px;
+}
+
+
+/* =========================
+   AMOUNT
+========================= */
+
+.donate-container input[name="amount"] {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+
+/* =========================
+   DONATE BUTTON
+========================= */
+
+.donate-container button[type="submit"] {
+  margin-top: 10px;
+
+  padding: 15px;
+
+  font-size: 17px;
+}
+
+.donate-container button[type="submit"]:not(:disabled) {
+  background: linear-gradient(135deg,
+      #2e7d32,
+      #1b5e20);
+
+  box-shadow: 0 5px 15px rgba(46, 125, 50, 0.2);
+}
+
+.donate-container button[type="submit"]:hover:not(:disabled) {
+  background: linear-gradient(135deg,
+      #388e3c,
+      #1b5e20);
+}
+
+
+/* =========================
+   SUCCESS / ERROR MESSAGES
+========================= */
+
+.success-message {
+  margin-top: 20px;
+
+  padding: 13px 15px;
+
+  border-radius: 9px;
+
+  background: #ecf8ef;
+
+  border: 1px solid #b9e4c2;
+
+  color: #237a36;
+
+  text-align: center;
+
+  font-weight: 600;
+}
+
+.error-message {
+  margin-top: 20px;
+
+  padding: 13px 15px;
+
+  border-radius: 9px;
+
+  background: #fff1f1;
+
+  border: 1px solid #f0b8b8;
+
+  color: #c62828;
+
+  text-align: center;
+
+  font-weight: 600;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .donate-container {
+    width: calc(100% - 30px);
+
+    margin: 35px auto;
+
+    padding: 30px 22px;
+
+    border-radius: 14px;
+  }
+
+  .donate-container h1 {
+    font-size: 30px;
+  }
+
+  .donate-container>p {
+    font-size: 15px;
+  }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+  .donate-container {
+    width: calc(100% - 20px);
+
+    padding: 25px 18px;
+  }
+
+  .donate-container h1 {
+    font-size: 27px;
+  }
+
+  .donate-container input {
+    padding: 13px 14px;
+  }
+
+  .donate-container button {
+    padding: 13px;
+  }
+}

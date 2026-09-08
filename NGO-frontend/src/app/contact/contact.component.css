@@ -1,0 +1,224 @@
+body {
+  background: #F5F0E3;
+}
+
+.contact-container {
+  --ink: #1B2B22;
+  --moss: #2F5233;
+  --moss-deep: #16261B;
+  --canvas: #F5F0E3;
+  --cream: #FBF8F0;
+  --ochre: #D9A22C;
+  --ochre-deep: #8A5F13;
+  --sky: #3E7387;
+  --clay: #A6552E;
+
+  position: relative;
+
+  max-width: 500px;
+
+  margin: 60px auto;
+
+  padding: 48px 42px 42px;
+
+  background: var(--cream);
+  border-radius: 6px;
+  box-shadow: 0 20px 45px rgba(27, 43, 34, 0.14);
+
+  color: var(--ink);
+
+  font-family: 'Work Sans', sans-serif;
+
+  overflow: hidden;
+}
+
+/* Accent bar across the top, tying it to the rest of the site */
+.contact-container::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 5px;
+
+  background: var(--sky);
+}
+
+/* Faint decorative ring in the corner, echoing the hero motif elsewhere */
+.contact-container::after {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  right: -110px;
+  top: -130px;
+
+  border: 1px solid rgba(27, 43, 34, 0.08);
+  border-radius: 50%;
+}
+
+
+/* =================================================
+   HEADING
+================================================= */
+
+.contact-container h1 {
+  position: relative;
+
+  margin: 0 0 34px;
+
+  text-align: center;
+
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 400;
+
+  letter-spacing: -0.04em;
+
+  color: var(--moss-deep);
+}
+
+.contact-container h1::after {
+  content: "";
+
+  display: block;
+
+  width: 45px;
+  height: 2px;
+
+  margin: 18px auto 0;
+
+  background: var(--ochre);
+}
+
+
+/* =================================================
+   FORM FIELDS
+================================================= */
+
+.contact-container form div {
+  margin-bottom: 22px;
+}
+
+.contact-container label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--moss-deep);
+
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+
+  letter-spacing: 0.01em;
+}
+
+.contact-container input,
+.contact-container textarea {
+  width: 100%;
+
+  padding: 12px 14px;
+
+  background: var(--canvas);
+  border: 1px solid rgba(27, 43, 34, 0.18);
+  border-radius: 3px;
+
+  color: var(--ink);
+
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.98rem;
+
+  box-sizing: border-box;
+
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-container textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-container input:hover,
+.contact-container textarea:hover {
+  border-color: rgba(27, 43, 34, 0.35);
+}
+
+.contact-container input:focus,
+.contact-container textarea:focus {
+  outline: none;
+
+  border-color: var(--ochre);
+  box-shadow: 0 0 0 3px rgba(217, 162, 44, 0.18);
+}
+
+.contact-container input::placeholder,
+.contact-container textarea::placeholder {
+  color: rgba(27, 43, 34, 0.4);
+}
+
+
+/* =================================================
+   SUBMIT BUTTON
+================================================= */
+
+.contact-container button {
+  width: 100%;
+
+  padding: 13px;
+
+  background: var(--moss-deep);
+  border: none;
+  border-radius: 3px;
+
+  color: var(--cream);
+
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.98rem;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: background 0.3s ease, transform 0.15s ease;
+}
+
+.contact-container button:hover:not(:disabled) {
+  background: var(--ochre-deep);
+}
+
+.contact-container button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.contact-container button:focus-visible {
+  outline: 2px solid var(--ochre);
+  outline-offset: 2px;
+}
+
+.contact-container button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* =================================================
+   STATUS TEXT
+================================================= */
+
+.contact-container p {
+  margin-top: 20px;
+
+  text-align: center;
+
+  color: var(--moss);
+
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 0.98rem;
+}

@@ -1,0 +1,292 @@
+.projects-container {
+  --ink: #1B2B22;
+  --moss: #2F5233;
+  --moss-deep: #16261B;
+  --canvas: #F5F0E3;
+  --cream: #FBF8F0;
+  --ochre: #D9A22C;
+  --ochre-deep: #8A5F13;
+  --sky: #3E7387;
+  --clay: #A6552E;
+
+  max-width: 1100px;
+
+  margin: 40px auto;
+
+  padding: 45px 30px 60px;
+
+  background: var(--canvas);
+  border-radius: 6px;
+
+  color: var(--ink);
+
+  font-family: 'Work Sans', sans-serif;
+}
+
+
+/* =================================================
+   HEADING
+================================================= */
+
+.projects-container h1 {
+  position: relative;
+
+  display: inline-block;
+  width: 100%;
+
+  margin: 20px 0 8px;
+
+  text-align: center;
+
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  font-weight: 400;
+
+  letter-spacing: -0.04em;
+
+  color: var(--moss-deep);
+}
+
+/* Thin static rule under the heading, matching the site's underline motif */
+.projects-container h1::after {
+  content: "";
+
+  display: block;
+
+  width: 50px;
+  height: 2px;
+
+  margin: 20px auto 0;
+
+  background: var(--ochre);
+}
+
+
+/* =================================================
+   INTRO
+================================================= */
+
+.intro {
+  position: relative;
+
+  max-width: 480px;
+  margin: 0 auto 90px;
+
+  padding-left: 24px;
+
+  border-left: 2px solid var(--ochre);
+
+  color: var(--moss-deep);
+
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.55;
+
+  text-align: left;
+}
+
+
+/* =================================================
+   PROJECTS GRID
+================================================= */
+
+.projects-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 30px;
+}
+
+
+/* =================================================
+   PROJECT CARDS
+================================================= */
+
+.project-card {
+  position: relative;
+
+  background: var(--cream);
+
+  border: 1px solid rgba(27, 43, 34, 0.12);
+  border-top: none;
+  border-radius: 3px;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* Permanent accent bar, cycling through the site's three accent colors */
+.project-card::before {
+  content: "";
+
+  display: block;
+
+  height: 4px;
+
+  background: var(--moss);
+}
+
+.project-card:nth-child(3n+1)::before { background: var(--ochre-deep); }
+.project-card:nth-child(3n+2)::before { background: var(--sky); }
+.project-card:nth-child(3n+3)::before { background: var(--clay); }
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(27, 43, 34, 0.25);
+  box-shadow: 0 16px 32px rgba(27, 43, 34, 0.14);
+}
+
+.project-card img {
+  display: block;
+
+  width: 100%;
+  height: 180px;
+
+  object-fit: cover;
+
+  filter: grayscale(25%) sepia(8%);
+
+  transition: filter 0.4s ease;
+}
+
+.project-card:hover img {
+  filter: grayscale(0%) sepia(0%);
+}
+
+.project-content {
+  padding: 22px 20px 24px;
+}
+
+.project-content h2,
+.project-content h3 {
+  margin: 0 0 10px;
+
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+
+  letter-spacing: -0.02em;
+
+  color: var(--moss);
+
+  transition: color 0.3s ease;
+}
+
+.project-content p {
+  margin: 0;
+
+  color: rgba(27, 43, 34, 0.62);
+
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Cycle the same three accent colors used across the site */
+.project-card:nth-child(3n+1):hover .project-content h2,
+.project-card:nth-child(3n+1):hover .project-content h3 {
+  color: var(--ochre-deep);
+}
+
+.project-card:nth-child(3n+2):hover .project-content h2,
+.project-card:nth-child(3n+2):hover .project-content h3 {
+  color: var(--sky);
+}
+
+.project-card:nth-child(3n+3):hover .project-content h2,
+.project-card:nth-child(3n+3):hover .project-content h3 {
+  color: var(--clay);
+}
+
+
+/* =================================================
+   LOADING MESSAGE
+================================================= */
+
+.message {
+  padding: 60px 40px;
+
+  text-align: center;
+
+  color: var(--moss);
+
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+}
+
+
+/* =================================================
+   ERROR MESSAGE
+================================================= */
+
+.error-message {
+  max-width: 420px;
+
+  margin: 0 auto;
+  padding: 40px 30px;
+
+  text-align: center;
+}
+
+.error-message p {
+  margin: 0 0 20px;
+
+  color: var(--clay);
+
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.error-message button {
+  padding: 11px 26px;
+
+  background: var(--moss-deep);
+
+  border: none;
+  border-radius: 4px;
+
+  color: var(--cream);
+
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.95rem;
+
+  cursor: pointer;
+
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.error-message button:hover {
+  background: var(--ochre-deep);
+}
+
+.error-message button:active {
+  transform: scale(0.97);
+}
+
+.error-message button:focus-visible {
+  outline: 2px solid var(--ochre);
+  outline-offset: 2px;
+}
+
+
+/* =================================================
+   RESPONSIVE
+================================================= */
+
+@media (max-width: 768px) {
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intro {
+    font-size: 1.05rem;
+  }
+
+}
