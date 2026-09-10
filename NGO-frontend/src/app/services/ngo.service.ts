@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NgoService {
 
-  private apiUrl = 'http://localhost:8080/api/ngos';
+  private apiUrl = `${environment.apiUrl}/ngos`;
 
   constructor(private http: HttpClient) {}
 
