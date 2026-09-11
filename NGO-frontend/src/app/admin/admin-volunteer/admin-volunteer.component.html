@@ -1,0 +1,212 @@
+<div class="volunteers-page">
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div>
+      <h1>Manage Volunteers</h1>
+      <p>View and manage volunteer applications.</p>
+    </div>
+
+    <button
+      class="refresh-btn"
+      type="button"
+      (click)="loadVolunteers()">
+      ↻ Refresh
+    </button>
+  </div>
+
+
+  <!-- Success Message -->
+  <div
+    class="success-message"
+    *ngIf="successMessage">
+    {{ successMessage }}
+  </div>
+
+
+  <!-- Error Message -->
+  <div
+    class="error-message"
+    *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+
+  <!-- Loading -->
+  <div
+    class="loading"
+    *ngIf="loading">
+    Loading volunteer applications...
+  </div>
+
+
+  <!-- No Volunteers -->
+  <div
+    class="empty-message"
+    *ngIf="!loading && volunteers.length === 0">
+
+    <h3>No Volunteer Applications</h3>
+    <p>There are currently no volunteer applications.</p>
+
+  </div>
+
+
+  <!-- Volunteer Table -->
+  <div
+    class="table-wrapper"
+    *ngIf="!loading && volunteers.length > 0">
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>NGO</th>
+          <th>Skills</th>
+          <th>Message</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+
+      <tbody>
+
+        <tr
+          *ngFor="let volunteer of volunteers; let i = index">
+
+          <!-- Number -->
+          <td>
+            {{ i + 1 }}
+          </td>
+
+
+          <!-- Name -->
+          <td>
+            <strong>
+              {{ volunteer.name }}
+            </strong>
+          </td>
+
+
+          <!-- Email -->
+          <td>
+            {{ volunteer.email }}
+          </td>
+
+
+          <!-- Phone -->
+          <td>
+            {{ volunteer.phone || '-' }}
+          </td>
+
+
+          <!-- NGO -->
+          <td>
+            {{ volunteer.ngo || '-' }}
+          </td>
+
+
+          <!-- Skills -->
+          <td>
+            {{ volunteer.skills || '-' }}
+          </td>
+
+
+          <!-- Message -->
+          <td class="message-column">
+            {{ volunteer.message || '-' }}
+          </td>
+
+
+          <!-- Status -->
+          <td>
+
+            <span
+              class="status"
+              [ngClass]="{
+                'pending':
+                  !volunteer.status ||
+                  volunteer.status === 'pending',
+
+                'accepted':
+                  volunteer.status === 'accepted',
+
+                'rejected':
+                  volunteer.status === 'rejected'
+              }">
+
+              {{ volunteer.status || 'pending' }}
+
+            </span>
+
+          </td>
+
+
+          <!-- Actions -->
+          <td>
+
+            <div class="actions">
+
+              <!-- Accept -->
+              <button
+                type="button"
+                class="accept-btn"
+                *ngIf="volunteer.status !== 'accepted'"
+                (click)="acceptVolunteer(volunteer.id)">
+                Accept
+              </button>
+
+              <!-- Already Accepted -->
+              <button
+                type="button"
+                class="accepted-btn"
+                *ngIf="volunteer.status === 'accepted'"
+                disabled>
+                Accepted
+              </button>
+
+
+              <!-- Reject -->
+              <button
+                type="button"
+                class="reject-btn"
+                *ngIf="volunteer.status !== 'rejected'"
+                (click)="rejectVolunteer(volunteer.id)">
+                Reject
+              </button>
+
+              <!-- Already Rejected -->
+              <button
+                type="button"
+                class="rejected-btn"
+                *ngIf="volunteer.status === 'rejected'"
+                disabled>
+                Rejected
+              </button>
+
+
+              <!-- Delete -->
+              <button
+                type="button"
+                class="delete-btn"
+                (click)="deleteVolunteer(volunteer.id)">
+                Delete
+              </button>
+
+            </div>
+
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

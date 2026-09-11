@@ -1,0 +1,149 @@
+<div class="volunteer-page">
+
+  <div class="volunteer-container">
+
+    <div class="volunteer-header">
+      <h1>Become a Volunteer</h1>
+
+      <p>
+        Join us and use your time and skills to make a difference
+        in the community.
+      </p>
+    </div>
+
+    <!-- Success -->
+    <div class="success-message" *ngIf="submitted">
+      <h3>Thank You!</h3>
+      <p>
+        Your volunteer application has been submitted successfully.
+        We will contact you soon.
+      </p>
+    </div>
+
+    <!-- Error -->
+    <div class="error-message" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+
+    <form
+      #volunteerForm="ngForm"
+      (ngSubmit)="submitVolunteer()"
+    >
+
+      <!-- Name -->
+      <div class="form-group">
+
+        <label for="name">
+          Full Name *
+        </label>
+
+        <input
+          id="name"
+          type="text"
+          name="name"
+          [(ngModel)]="volunteer.name"
+          placeholder="Enter your full name"
+          required
+        >
+
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+
+        <label for="email">
+          Email *
+        </label>
+
+        <input
+          id="email"
+          type="email"
+          name="email"
+          [(ngModel)]="volunteer.email"
+          placeholder="Enter your email"
+          required
+        >
+
+      </div>
+
+      <!-- Phone -->
+      <div class="form-group">
+
+        <label for="phone">
+          Phone Number
+        </label>
+
+        <input
+          id="phone"
+          type="tel"
+          name="phone"
+          [(ngModel)]="volunteer.phone"
+          placeholder="Enter your phone number"
+        >
+
+      </div>
+
+      <!-- NGO -->
+      <div class="form-group">
+
+        <label for="ngo">
+          NGO
+        </label>
+
+        <input
+          id="ngo"
+          type="text"
+          name="ngo"
+          [(ngModel)]="volunteer.ngo"
+          placeholder="Enter the NGO you want to volunteer with"
+        >
+
+      </div>
+
+      <!-- Skills -->
+      <div class="form-group">
+
+        <label for="skills">
+          Skills
+        </label>
+
+        <input
+          id="skills"
+          type="text"
+          name="skills"
+          [(ngModel)]="volunteer.skills"
+          placeholder="Example: Teaching, Marketing, Event Management"
+        >
+
+      </div>
+
+      <!-- Message -->
+      <div class="form-group">
+
+        <label for="message">
+          Message
+        </label>
+
+        <textarea
+          id="message"
+          name="message"
+          [(ngModel)]="volunteer.message"
+          placeholder="Tell us why you want to volunteer..."
+          rows="5"
+        ></textarea>
+
+      </div>
+
+      <!-- Submit -->
+      <button
+        type="submit"
+        [disabled]="volunteerForm.invalid"
+      >
+        Submit Application
+      </button>
+
+    </form>
+
+  </div>
+
+</div>

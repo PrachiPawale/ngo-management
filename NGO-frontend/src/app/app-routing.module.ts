@@ -20,6 +20,8 @@ import { NgoService } from "./services/ngo.service";
 import { AdminNgoComponent } from "./admin/admin-ngo/admin-ngo.component";
 import { NgoComponent } from "./ngo/ngo.component";
 import { NgoDetailsComponent } from "./ngo-details/ngo-details.component";
+import { VolunteerComponent } from "./volunteer/volunteer.component";
+import { AdminVolunteerComponent } from "./admin/admin-volunteer/admin-volunteer.component";
 
 const routes: Routes = [
   // Public pages
@@ -53,6 +55,11 @@ const routes: Routes = [
     component: DonateComponent,
   },
 
+  {
+    path: "volunteer",
+    component: VolunteerComponent,
+  },
+
   // Admin Login
   {
     path: "admin/login",
@@ -68,6 +75,7 @@ const routes: Routes = [
     path: "ngo/:id",
     component: NgoDetailsComponent,
   },
+
 
   // Admin Panel
   {
@@ -107,6 +115,12 @@ const routes: Routes = [
         component: AdminNgoComponent,
         canActivate: [AuthGuard],
       },
+
+      {
+        path: "volunteers",
+        component: AdminVolunteerComponent,
+        canActivate: [AuthGuard],
+      }
     ],
   },
 

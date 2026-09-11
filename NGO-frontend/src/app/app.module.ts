@@ -23,6 +23,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AdminNgoComponent } from './admin/admin-ngo/admin-ngo.component';
 import { NgoComponent } from './ngo/ngo.component';
 import { NgoDetailsComponent } from './ngo-details/ngo-details.component';
+import { VolunteerComponent } from './volunteer/volunteer.component';
+import { AdminVolunteerComponent } from './admin/admin-volunteer/admin-volunteer.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { NgoDetailsComponent } from './ngo-details/ngo-details.component';
     PageNotFoundComponent,
     AdminNgoComponent,
     NgoComponent,
-    NgoDetailsComponent
+    NgoDetailsComponent,
+    VolunteerComponent,
+    AdminVolunteerComponent
   ],
   imports: [
     BrowserModule,

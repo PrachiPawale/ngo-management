@@ -1,253 +1,500 @@
+/* ================================
+   OUR WORK PAGE
+================================ */
+
 .our-work {
-  --ink: #1B2B22;
-  --moss: #2F5233;
-  --moss-deep: #16261B;
-  --canvas: #F5F0E3;
-  --cream: #FBF8F0;
-  --ochre: #D9A22C;
-  --ochre-deep: #8A5F13;
-  --sky: #3E7387;
-  --clay: #A6552E;
+  --ink: #1b2b22;
+  --moss: #2f5233;
+  --moss-deep: #16261b;
+  --canvas: #f5f0e3;
+  --cream: #fbf8f0;
+  --ochre: #d9a22c;
+  --ochre-deep: #8a5f13;
+  --sky: #3e7387;
+  --clay: #a6552e;
 
-  position: relative;
-
-  padding: 130px 30px 100px;
-
+  min-height: 100vh;
+  padding: 110px 30px 0;
   background: var(--canvas);
   color: var(--ink);
+  font-family: "Work Sans", sans-serif;
+  overflow: hidden;
+}
 
-  font-family: 'Work Sans', sans-serif;
 
+/* ================================
+   HEADER
+================================ */
+
+.work-header {
+  max-width: 850px;
+  margin: 0 auto;
   text-align: center;
+  padding-bottom: 90px;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 22px;
+  color: var(--ochre-deep);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.work-header h1 {
+  margin: 0 0 28px;
+
+  font-family: "Fraunces", serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+
+  color: var(--moss-deep);
+
+  transition: 0.3s ease;
+}
+
+.work-header h1:hover {
+  color: var(--ochre-deep);
+  letter-spacing: -0.02em;
+}
+
+.work-header .intro {
+  max-width: 600px;
+  margin: auto;
+
+  color: #4b5b50;
+
+  font-family: "Fraunces", serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+
+/* ================================
+   FOCUS SECTION
+================================ */
+
+.focus-section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+/* Section heading */
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  margin-bottom: 35px;
+  padding-bottom: 20px;
+
+  border-bottom: 1px solid rgba(27, 43, 34, 0.2);
+}
+
+.section-heading span {
+  color: var(--moss-deep);
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.section-heading p {
+  max-width: 380px;
+  margin: 0;
+
+  color: #667168;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* ================================
+   WORK LIST
+================================ */
+
+.work-list {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+}
+
+
+/* ================================
+   WORK CARD
+================================ */
+
+.work-card {
+  position: relative;
+
+  overflow: hidden;
+
+  background: var(--cream);
+
+  border: 1px solid rgba(27, 43, 34, 0.12);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.work-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 20px 45px rgba(27, 43, 34, 0.14);
+}
+
+
+/* ================================
+   IMAGE
+================================ */
+
+.work-image {
+  position: relative;
+
+  height: 260px;
 
   overflow: hidden;
 }
 
-/* Faint decorative ring, echoing the hero circle on the about page */
-.our-work::after {
+.work-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.6s ease,
+    filter 0.4s ease;
+}
+
+.work-card:hover .work-image img {
+  transform: scale(1.08);
+}
+
+
+/* Image overlay */
+
+.work-image::after {
   content: "";
 
   position: absolute;
 
-  width: 480px;
-  height: 480px;
+  inset: 0;
 
-  right: -220px;
-  top: -260px;
+  background: linear-gradient(
+    to bottom,
+    rgba(22, 38, 27, 0.02),
+    rgba(22, 38, 27, 0.35)
+  );
 
-  border: 1px solid rgba(27, 43, 34, 0.08);
-  border-radius: 50%;
+  pointer-events: none;
 }
 
 
-/* =================================================
-   HEADING
-================================================= */
+/* Number */
 
-.our-work h1 {
-  position: relative;
+.number {
+  position: absolute;
 
-  display: inline-block;
+  left: 18px;
+  bottom: 18px;
 
-  max-width: 640px;
-  margin: 0 0 26px;
+  z-index: 2;
 
-  font-family: 'Fraunces', serif;
-  font-size: clamp(2.75rem, 6vw, 4.5rem);
-  font-weight: 400;
+  width: 46px;
+  height: 46px;
 
-  line-height: 1;
-  letter-spacing: -0.045em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--cream);
+  color: var(--moss-deep);
+
+  font-family: "Fraunces", serif;
+  font-size: 18px;
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ================================
+   CARD CONTENT
+================================ */
+
+.work-content {
+  padding: 30px 28px 32px;
+}
+
+.category {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: var(--ochre-deep);
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.work-content h2 {
+  margin: 0 0 15px;
 
   color: var(--moss-deep);
 
-  cursor: default;
-
-  transition: color 0.4s ease, letter-spacing 0.4s ease;
+  font-family: "Fraunces", serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.1;
 }
 
-.our-work h1:hover {
-  letter-spacing: -0.02em;
+.work-content p {
+  margin: 0 0 25px;
+
+  color: #59665d;
+
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+
+/* ================================
+   EXPLORE LINK
+================================ */
+
+.work-link {
+  display: inline-flex;
+  align-items: center;
+
+  color: var(--moss);
+
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    gap 0.25s ease;
+}
+
+.work-link:hover {
   color: var(--ochre-deep);
 }
 
 
-/* =================================================
-   INTRO
-================================================= */
+/* ================================
+   CTA
+================================ */
 
-.our-work .intro {
-  position: relative;
+.work-cta {
+  max-width: 1200px;
 
-  max-width: 480px;
-  margin: 0 auto 90px;
+  margin: 110px auto 0;
+  padding: 80px 40px;
 
-  padding-left: 24px;
+  text-align: center;
 
-  border-left: 2px solid var(--ochre);
+  background: var(--moss-deep);
 
+  color: white;
+}
+
+.work-cta > span {
+  display: block;
+
+  margin-bottom: 20px;
+
+  color: #d9a22c;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.work-cta h2 {
+  margin: 0 auto 35px;
+
+  max-width: 700px;
+
+  font-family: "Fraunces", serif;
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+
+/* CTA Button */
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 28px;
+
+  background: var(--ochre);
   color: var(--moss-deep);
 
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-size: 1.35rem;
-  line-height: 1.55;
+  border: 1px solid var(--ochre);
 
-  text-align: left;
+  font-size: 13px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: transparent;
+  color: white;
+
+  transform: translateY(-2px);
 }
 
 
-/* =================================================
-   WORK LIST
-================================================= */
+/* ================================
+   TABLET
+================================ */
 
-.our-work .work-list {
-  display: flex;
-  flex-direction: column;
-
-  max-width: 780px;
-  margin: 0 auto;
-
-  border-top: 1px solid rgba(27, 43, 34, 0.18);
-
-  text-align: left;
-}
-
-
-/* =================================================
-   WORK ROWS
-================================================= */
-
-.our-work .work-card {
-  position: relative;
-
-  display: grid;
-  grid-template-columns: 84px 1fr;
-  column-gap: 32px;
-  row-gap: 6px;
-
-  padding: 40px 4px;
-
-  border-bottom: 1px solid rgba(27, 43, 34, 0.18);
-
-  cursor: default;
-
-  transition: padding-left 0.35s ease, background 0.35s ease;
-}
-
-.our-work .work-card:hover {
-  padding-left: 16px;
-  background: rgba(251, 248, 240, 0.6);
-}
-
-/* Large initial letter standing in for a category mark, sized to the word itself */
-.our-work .work-card::before {
-  grid-column: 1;
-  grid-row: 1 / 3;
-
-  align-self: center;
-
-  font-family: 'Fraunces', serif;
-  font-size: 4.25rem;
-  line-height: 1;
-
-  opacity: 0.16;
-
-  transition: opacity 0.35s ease, transform 0.35s ease;
-}
-
-.our-work .work-card:hover::before {
-  opacity: 0.4;
-  transform: translateX(-4px);
-}
-
-.our-work .work-card:nth-child(1) {
-  --accent: var(--ochre-deep);
-}
-
-.our-work .work-card:nth-child(2) {
-  --accent: var(--sky);
-}
-
-.our-work .work-card:nth-child(3) {
-  --accent: var(--clay);
-}
-
-.our-work .work-card::before {
-  color: var(--accent, var(--moss));
-}
-
-.our-work .work-card:nth-child(1)::before { content: "E"; }
-.our-work .work-card:nth-child(2)::before { content: "H"; }
-.our-work .work-card:nth-child(3)::before { content: "C"; }
-
-
-/* =================================================
-   ROW CONTENT
-================================================= */
-
-.our-work .work-card h2 {
-  grid-column: 2;
-  grid-row: 1;
-
-  margin: 0;
-
-  font-family: 'Fraunces', serif;
-  font-size: 1.6rem;
-  font-weight: 400;
-
-  letter-spacing: -0.02em;
-
-  color: var(--ink);
-
-  transition: color 0.3s ease;
-}
-
-.our-work .work-card:hover h2 {
-  color: var(--accent, var(--moss));
-}
-
-.our-work .work-card p {
-  grid-column: 2;
-  grid-row: 2;
-
-  margin: 8px 0 0;
-  max-width: 420px;
-
-  color: rgba(27, 43, 34, 0.62);
-
-  font-size: 0.98rem;
-  line-height: 1.65;
-}
-
-
-/* =================================================
-   RESPONSIVE
-================================================= */
-
-@media (max-width: 640px) {
+@media (max-width: 900px) {
 
   .our-work {
-    padding: 90px 22px 70px;
+    padding: 90px 25px 0;
   }
 
-  .our-work .intro {
-    font-size: 1.15rem;
-    margin-bottom: 60px;
+  .work-list {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .our-work .work-card {
-    grid-template-columns: 52px 1fr;
-    column-gap: 18px;
-    padding: 28px 2px;
+  .work-card:last-child {
+    grid-column: 1 / -1;
+
+    max-width: 50%;
+    margin: 0 auto;
   }
 
-  .our-work .work-card::before {
-    font-size: 2.75rem;
+  .work-image {
+    height: 240px;
   }
 
-  .our-work .work-card h2 {
-    font-size: 1.3rem;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 650px) {
+
+  .our-work {
+    padding: 75px 18px 0;
+  }
+
+
+  /* Header */
+
+  .work-header {
+    padding-bottom: 65px;
+  }
+
+  .work-header h1 {
+    font-size: 3.4rem;
+  }
+
+  .work-header .intro {
+    font-size: 1.1rem;
+  }
+
+
+  /* Section heading */
+
+  .section-heading {
+    display: block;
+  }
+
+  .section-heading span {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  .section-heading p {
+    max-width: 100%;
+  }
+
+
+  /* Cards */
+
+  .work-list {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .work-card:last-child {
+    grid-column: auto;
+
+    max-width: none;
+  }
+
+
+  .work-image {
+    height: 230px;
+  }
+
+  .work-content {
+    padding: 26px 23px 28px;
+  }
+
+  .work-content h2 {
+    font-size: 27px;
+  }
+
+
+  /* CTA */
+
+  .work-cta {
+    margin-top: 75px;
+    padding: 65px 25px;
+  }
+
+  .work-cta h2 {
+    font-size: 2.4rem;
+  }
+
+}
+
+
+/* ================================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 400px) {
+
+  .work-header h1 {
+    font-size: 3rem;
+  }
+
+  .work-image {
+    height: 210px;
+  }
+
+  .work-cta h2 {
+    font-size: 2.1rem;
   }
 
 }
