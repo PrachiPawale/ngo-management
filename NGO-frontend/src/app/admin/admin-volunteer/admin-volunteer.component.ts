@@ -15,7 +15,7 @@ export class AdminVolunteerComponent implements OnInit {
   successMessage = '';
   errorMessage = '';
 
-  private apiUrl = 'http://localhost:3000/api/volunteers';
+  private apiUrl = 'https://ngo-management-backend-db65.onrender.com/api/volunteers';
 
   constructor(private http: HttpClient) {}
 

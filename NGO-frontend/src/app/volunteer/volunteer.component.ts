@@ -33,7 +33,7 @@ export class VolunteerComponent {
     }
 
     this.http.post(
-      'http://localhost:8080/api/volunteers',
+      'https://ngo-management-backend-db65.onrender.com/api/volunteers',
       this.volunteer
     ).subscribe({
 
