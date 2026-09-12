@@ -1,20 +1,18 @@
 .about {
-  --ink: #1B2B22;
-  --moss: #2F5233;
-  --moss-deep: #16261B;
-  --canvas: #F5F0E3;
-  --cream: #FBF8F0;
-  --ochre: #D9A22C;
-  --ochre-deep: #8A5F13;
-  --sky: #3E7387;
-  --clay: #A6552E;
+  --ink: #1b2b22;
+  --moss: #2f5233;
+  --moss-deep: #16261b;
+  --canvas: #f5f0e3;
+  --cream: #fbf8f0;
+  --ochre: #d9a22c;
+  --ochre-deep: #8a5f13;
+  --sky: #3e7387;
+  --clay: #a6552e;
 
   min-height: 100vh;
   background: var(--canvas);
   color: var(--ink);
-
-  font-family: 'Work Sans', sans-serif;
-
+  font-family: "Work Sans", sans-serif;
   overflow: hidden;
 }
 
@@ -25,17 +23,15 @@
 
 .about h1 {
   position: relative;
-
   margin: 0;
-  padding: 10px 10px 10px;
+  padding: 120px 30px 110px;
 
   background: var(--moss-deep);
   color: var(--cream);
 
   text-align: center;
-
-  font-family: 'Fraunces', serif;
-  font-size: clamp(3rem, 6vw, 6rem);
+  font-family: "Fraunces", serif;
+  font-size: clamp(3.5rem, 8vw, 7rem);
   font-weight: 400;
   line-height: 0.95;
   letter-spacing: -0.055em;
@@ -45,31 +41,26 @@
 
   transition:
     letter-spacing 0.5s ease,
-    transform 0.5s ease,
-    color 0.5s ease;
+    color 0.5s ease,
+    transform 0.5s ease;
 }
 
-/* Interactive hover: headline breathes open and warms in color */
 .about h1:hover {
   letter-spacing: -0.025em;
   color: var(--ochre);
-  transform: scale(1.015);
 }
 
-/* Quick punch feedback on click */
 .about h1:active {
-  transform: scale(0.985);
-  transition-duration: 0.15s;
+  transform: scale(0.99);
 }
 
 
-/* Animated golden line */
+/* Golden animated line */
 
 .about h1::before {
   content: "";
 
   position: absolute;
-
   left: 50%;
   bottom: 0;
 
@@ -82,7 +73,9 @@
 
   animation: revealLine 1.2s ease forwards;
 
-  transition: width 0.5s ease, background 0.5s ease;
+  transition:
+    width 0.5s ease,
+    background 0.5s ease;
 }
 
 .about h1:hover::before {
@@ -98,21 +91,22 @@
 
   position: absolute;
 
-  width: 350px;
-  height: 350px;
+  width: 420px;
+  height: 420px;
 
-  right: -180px;
-  top: -180px;
+  right: -210px;
+  top: -210px;
 
   border: 1px solid rgba(251, 248, 240, 0.15);
-
   border-radius: 50%;
 
-  transition: transform 0.8s ease, border-color 0.8s ease;
+  transition:
+    transform 0.8s ease,
+    border-color 0.8s ease;
 }
 
 .about h1:hover::after {
-  transform: scale(1.25) rotate(25deg);
+  transform: scale(1.2) rotate(25deg);
   border-color: rgba(217, 162, 44, 0.35);
 }
 
@@ -122,34 +116,29 @@
 ================================================= */
 
 .about .intro {
-  position: relative;
-
-  max-width: 760px;
+  max-width: 800px;
 
   margin: 0 auto;
 
-  padding: 40px 10px 1px;
+  padding: 80px 30px 90px;
 
-  background: var(--sky-deep);
-
-  color: #000;
+  color: #59665d;
 
   text-align: center;
 
-  font-size: 1.05rem;
-  line-height: 1.9;
+  font-family: "Fraunces", serif;
+  font-size: 1.3rem;
+  font-style: italic;
+
+  line-height: 1.8;
 
   transition:
     color 0.3s ease,
     transform 0.3s ease;
 }
 
-
-/* Intro hover */
-
 .about .intro:hover {
-  color: var(--sky);
-
+  color: var(--moss);
   transform: translateY(-4px);
 }
 
@@ -161,11 +150,11 @@
 .about section {
   position: relative;
 
-  max-width: 1050px;
+  max-width: 1200px;
 
   margin: 0 auto;
 
-  padding: 110px 50px;
+  padding: 100px 50px;
 
   border-bottom: 1px solid rgba(27, 43, 34, 0.15);
 
@@ -185,7 +174,7 @@
   position: absolute;
 
   left: 0;
-  top: 110px;
+  top: 100px;
 
   width: 4px;
   height: 0;
@@ -194,7 +183,6 @@
 
   transition: height 0.5s ease;
 }
-
 
 .about section:hover::before {
   height: 100px;
@@ -212,15 +200,15 @@
 
   margin: 0 0 28px;
 
-  font-family: 'Fraunces', serif;
+  font-family: "Fraunces", serif;
 
-  font-size: clamp(3rem, 5vw, 5rem);
+  font-size: clamp(3rem, 6vw, 5rem);
 
   font-weight: 400;
 
   line-height: 1;
 
-  letter-spacing: -0.04em;
+  letter-spacing: -0.045em;
 
   cursor: default;
 
@@ -230,21 +218,48 @@
     letter-spacing 0.4s ease;
 }
 
-
 .about section:hover h2 {
   transform: translateX(12px);
 }
 
-/* Extra nudge + loosened tracking when hovering the heading itself */
 .about h2:hover {
   letter-spacing: -0.015em;
-  transform: translateX(20px) skewX(-2deg);
+  transform: translateX(18px);
 }
 
-/* Tap/click feedback */
 .about h2:active {
-  transform: translateX(20px) scale(0.97);
-  transition-duration: 0.15s;
+  transform: translateX(18px) scale(0.97);
+}
+
+
+/* Underline */
+
+.about section h2::after {
+  content: "";
+
+  display: block;
+
+  width: 45px;
+  height: 2px;
+
+  margin-top: 22px;
+
+  background: currentColor;
+
+  transform-origin: left;
+  transform: scaleX(0);
+
+  transition:
+    transform 0.4s ease,
+    width 0.4s ease;
+}
+
+.about section:hover h2::after {
+  transform: scaleX(1);
+}
+
+.about h2:hover::after {
+  width: 70px;
 }
 
 
@@ -253,7 +268,7 @@
 ================================================= */
 
 .about section p {
-  max-width: 700px;
+  max-width: 720px;
 
   margin: 0;
 
@@ -268,10 +283,8 @@
     transform 0.4s ease;
 }
 
-
 .about section:hover p {
   color: var(--ink);
-
   transform: translateX(12px);
 }
 
@@ -293,6 +306,35 @@
 }
 
 
+/* Number */
+
+.about section:nth-of-type(1)::after {
+  content: "01";
+
+  position: absolute;
+
+  right: 50px;
+  top: 70px;
+
+  font-family: "IBM Plex Mono", monospace;
+
+  font-size: 0.75rem;
+
+  color: var(--clay);
+
+  opacity: 0.8;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.about section:nth-of-type(1):hover::after {
+  opacity: 1;
+  transform: scale(1.3);
+}
+
+
 /* =================================================
    MISSION
 ================================================= */
@@ -300,17 +342,15 @@
 .about section:nth-of-type(2) {
   max-width: none;
 
-  padding-left: max(50px, calc((100vw - 950px) / 2));
-  padding-right: max(50px, calc((100vw - 950px) / 2));
+  padding-left: max(50px, calc((100vw - 1100px) / 2));
+  padding-right: max(50px, calc((100vw - 1100px) / 2));
 
   background: var(--cream);
 }
 
-
 .about section:nth-of-type(2)::before {
   background: var(--ochre);
 }
-
 
 .about section:nth-of-type(2) h2 {
   color: var(--ochre-deep);
@@ -318,6 +358,35 @@
 
 .about section:nth-of-type(2) h2:hover {
   color: var(--clay);
+}
+
+
+/* Number */
+
+.about section:nth-of-type(2)::after {
+  content: "02";
+
+  position: absolute;
+
+  right: max(50px, calc((100vw - 1100px) / 2));
+  top: 70px;
+
+  font-family: "IBM Plex Mono", monospace;
+
+  font-size: 0.75rem;
+
+  color: var(--ochre-deep);
+
+  opacity: 0.8;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.about section:nth-of-type(2):hover::after {
+  opacity: 1;
+  transform: scale(1.3);
 }
 
 
@@ -329,11 +398,9 @@
   background: var(--canvas);
 }
 
-
 .about section:nth-of-type(3)::before {
   background: var(--sky);
 }
-
 
 .about section:nth-of-type(3) h2 {
   color: var(--sky);
@@ -344,59 +411,7 @@
 }
 
 
-/* =================================================
-   INTERACTIVE SECTION NUMBERS
-================================================= */
-
-.about section:nth-of-type(1)::after {
-  content: "01";
-
-  position: absolute;
-
-  right: 50px;
-  top: 70px;
-
-  font-family: 'IBM Plex Mono', monospace;
-
-  font-size: 0.75rem;
-
-  color: var(--clay);
-
-  opacity: 0.8;
-
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.about section:nth-of-type(1):hover::after {
-  opacity: 1;
-  transform: scale(1.3);
-}
-
-
-.about section:nth-of-type(2)::after {
-  content: "02";
-
-  position: absolute;
-
-  right: max(50px, calc((100vw - 950px) / 2));
-  top: 70px;
-
-  font-family: 'IBM Plex Mono', monospace;
-
-  font-size: 0.75rem;
-
-  color: var(--ochre-deep);
-
-  opacity: 0.8;
-
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.about section:nth-of-type(2):hover::after {
-  opacity: 1;
-  transform: scale(1.3);
-}
-
+/* Number */
 
 .about section:nth-of-type(3)::after {
   content: "03";
@@ -406,7 +421,7 @@
   right: 50px;
   top: 70px;
 
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: "IBM Plex Mono", monospace;
 
   font-size: 0.75rem;
 
@@ -414,7 +429,9 @@
 
   opacity: 0.8;
 
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
 .about section:nth-of-type(3):hover::after {
@@ -424,40 +441,7 @@
 
 
 /* =================================================
-   SCROLL-LIKE VISUAL EFFECT
-================================================= */
-
-.about section h2::after {
-  content: "";
-
-  display: block;
-
-  width: 45px;
-  height: 2px;
-
-  margin-top: 22px;
-
-  background: currentColor;
-
-  transform-origin: left;
-
-  transform: scaleX(0);
-
-  transition: transform 0.4s ease, width 0.4s ease;
-}
-
-
-.about section:hover h2::after {
-  transform: scaleX(1);
-}
-
-.about h2:hover::after {
-  width: 70px;
-}
-
-
-/* =================================================
-   FINAL CTA
+   FINAL SECTION
 ================================================= */
 
 .about section:last-child {
@@ -470,7 +454,6 @@
 ================================================= */
 
 @keyframes revealLine {
-
   from {
     width: 0;
   }
@@ -478,7 +461,6 @@
   to {
     width: 160px;
   }
-
 }
 
 
@@ -489,16 +471,16 @@
 @media (max-width: 768px) {
 
   .about h1 {
-    padding: 90px 25px 35px;
+    padding: 90px 25px 80px;
 
     font-size: clamp(3.5rem, 15vw, 5.5rem);
   }
 
 
   .about .intro {
-    padding: 35px 25px 70px;
+    padding: 60px 25px 70px;
 
-    font-size: 0.95rem;
+    font-size: 1.05rem;
   }
 
 
@@ -509,7 +491,7 @@
 
 
   .about section::before {
-    left: 10px;
+    left: 8px;
     top: 75px;
   }
 
@@ -535,5 +517,56 @@
     right: 25px;
     top: 40px;
   }
+}
 
+
+/* =================================================
+   SMALL MOBILE
+================================================= */
+
+@media (max-width: 400px) {
+
+  .about h1 {
+    padding: 80px 20px 70px;
+
+    font-size: 3.2rem;
+  }
+
+
+  .about .intro {
+    padding: 50px 20px 60px;
+
+    font-size: 1rem;
+  }
+
+
+  .about section,
+  .about section:nth-of-type(2) {
+    padding: 65px 20px;
+  }
+
+
+  .about section:hover {
+    padding-left: 28px;
+  }
+
+
+  .about h2 {
+    font-size: 2.8rem;
+  }
+
+
+  .about section p {
+    font-size: 0.92rem;
+    line-height: 1.8;
+  }
+
+
+  .about h1::after {
+    width: 280px;
+    height: 280px;
+
+    right: -150px;
+    top: -150px;
+  }
 }

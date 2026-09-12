@@ -1,38 +1,51 @@
 body {
-  background: #F5F0E3;
+  background: #f5f0e3;
+  margin: 0;
 }
 
+
+/* =========================================
+   CONTACT CONTAINER
+========================================= */
+
 .contact-container {
-  --ink: #1B2B22;
-  --moss: #2F5233;
-  --moss-deep: #16261B;
-  --canvas: #F5F0E3;
-  --cream: #FBF8F0;
-  --ochre: #D9A22C;
-  --ochre-deep: #8A5F13;
-  --sky: #3E7387;
-  --clay: #A6552E;
+  --ink: #1b2b22;
+  --moss: #2f5233;
+  --moss-deep: #16261b;
+  --canvas: #f5f0e3;
+  --cream: #fbf8f0;
+  --ochre: #d9a22c;
+  --ochre-deep: #8a5f13;
+  --sky: #3e7387;
+  --clay: #a6552e;
 
   position: relative;
 
-  max-width: 500px;
+  max-width: 600px;
 
-  margin: 60px auto;
+  margin: 80px auto;
 
-  padding: 48px 42px 42px;
+  padding: 65px 55px 55px;
 
   background: var(--cream);
-  border-radius: 6px;
-  box-shadow: 0 20px 45px rgba(27, 43, 34, 0.14);
 
   color: var(--ink);
 
-  font-family: 'Work Sans', sans-serif;
+  font-family: "Work Sans", sans-serif;
+
+  border: 1px solid rgba(27, 43, 34, 0.1);
+
+  box-shadow:
+    0 25px 55px rgba(27, 43, 34, 0.12);
 
   overflow: hidden;
 }
 
-/* Accent bar across the top, tying it to the rest of the site */
+
+/* =========================================
+   TOP ACCENT
+========================================= */
+
 .contact-container::before {
   content: "";
 
@@ -40,123 +53,192 @@ body {
 
   top: 0;
   left: 0;
-  right: 0;
 
+  width: 100%;
   height: 5px;
 
   background: var(--sky);
 }
 
-/* Faint decorative ring in the corner, echoing the hero motif elsewhere */
+
+/* =========================================
+   DECORATIVE CIRCLE
+========================================= */
+
 .contact-container::after {
   content: "";
 
   position: absolute;
 
-  width: 220px;
-  height: 220px;
+  width: 280px;
+  height: 280px;
 
-  right: -110px;
-  top: -130px;
+  right: -150px;
+  top: -150px;
 
-  border: 1px solid rgba(27, 43, 34, 0.08);
+  border: 1px solid rgba(27, 43, 34, 0.1);
+
   border-radius: 50%;
+
+  transition:
+    transform 0.7s ease,
+    border-color 0.5s ease;
+}
+
+.contact-container:hover::after {
+  transform: scale(1.12) rotate(20deg);
+
+  border-color: rgba(217, 162, 44, 0.3);
 }
 
 
-/* =================================================
+/* =========================================
    HEADING
-================================================= */
+========================================= */
 
 .contact-container h1 {
   position: relative;
 
-  margin: 0 0 34px;
+  margin: 0 0 42px;
 
   text-align: center;
 
-  font-family: 'Fraunces', serif;
-  font-size: clamp(2rem, 5vw, 2.75rem);
+  color: var(--moss-deep);
+
+  font-family: "Fraunces", serif;
+
+  font-size: clamp(3rem, 7vw, 4.8rem);
+
   font-weight: 400;
 
-  letter-spacing: -0.04em;
+  line-height: 1;
 
-  color: var(--moss-deep);
+  letter-spacing: -0.05em;
+
+  transition:
+    color 0.3s ease,
+    letter-spacing 0.4s ease;
 }
+
+.contact-container h1:hover {
+  color: var(--ochre-deep);
+
+  letter-spacing: -0.02em;
+}
+
+
+/* Heading underline */
 
 .contact-container h1::after {
   content: "";
 
   display: block;
 
-  width: 45px;
-  height: 2px;
+  width: 0;
+  height: 3px;
 
-  margin: 18px auto 0;
+  margin: 22px auto 0;
 
   background: var(--ochre);
+
+  transition: width 0.5s ease;
+}
+
+.contact-container h1:hover::after {
+  width: 100px;
 }
 
 
-/* =================================================
-   FORM FIELDS
-================================================= */
+/* =========================================
+   FORM
+========================================= */
+
+.contact-container form {
+  position: relative;
+
+  z-index: 1;
+}
+
 
 .contact-container form div {
-  margin-bottom: 22px;
+  margin-bottom: 25px;
 }
+
+
+/* =========================================
+   LABELS
+========================================= */
 
 .contact-container label {
   display: block;
 
-  margin-bottom: 8px;
+  margin-bottom: 9px;
 
   color: var(--moss-deep);
 
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 
-  letter-spacing: 0.01em;
+  font-weight: 600;
+
+  letter-spacing: 0.04em;
 }
+
+
+/* =========================================
+   INPUTS
+========================================= */
 
 .contact-container input,
 .contact-container textarea {
   width: 100%;
 
-  padding: 12px 14px;
-
-  background: var(--canvas);
-  border: 1px solid rgba(27, 43, 34, 0.18);
-  border-radius: 3px;
-
-  color: var(--ink);
-
-  font-family: 'Work Sans', sans-serif;
-  font-size: 0.98rem;
+  padding: 14px 15px;
 
   box-sizing: border-box;
 
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  background: var(--canvas);
+
+  border: 1px solid rgba(27, 43, 34, 0.18);
+
+  border-radius: 2px;
+
+  color: var(--ink);
+
+  font-family: "Work Sans", sans-serif;
+
+  font-size: 0.95rem;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
 }
 
-.contact-container textarea {
-  resize: vertical;
-  min-height: 120px;
-}
+
+/* Hover */
 
 .contact-container input:hover,
 .contact-container textarea:hover {
-  border-color: rgba(27, 43, 34, 0.35);
+  border-color: rgba(27, 43, 34, 0.38);
 }
+
+
+/* Focus */
 
 .contact-container input:focus,
 .contact-container textarea:focus {
   outline: none;
 
+  background: #fffdf7;
+
   border-color: var(--ochre);
-  box-shadow: 0 0 0 3px rgba(217, 162, 44, 0.18);
+
+  box-shadow:
+    0 0 0 3px rgba(217, 162, 44, 0.16);
 }
+
+
+/* Placeholder */
 
 .contact-container input::placeholder,
 .contact-container textarea::placeholder {
@@ -164,61 +246,174 @@ body {
 }
 
 
-/* =================================================
+/* Textarea */
+
+.contact-container textarea {
+  min-height: 140px;
+
+  resize: vertical;
+}
+
+
+/* =========================================
    SUBMIT BUTTON
-================================================= */
+========================================= */
 
 .contact-container button {
   width: 100%;
 
-  padding: 13px;
+  margin-top: 5px;
+
+  padding: 15px 20px;
 
   background: var(--moss-deep);
-  border: none;
-  border-radius: 3px;
+
+  border: 1px solid var(--moss-deep);
+
+  border-radius: 2px;
 
   color: var(--cream);
 
-  font-family: 'Work Sans', sans-serif;
-  font-size: 0.98rem;
-  font-weight: 500;
+  font-family: "Work Sans", sans-serif;
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.03em;
 
   cursor: pointer;
 
-  transition: background 0.3s ease, transform 0.15s ease;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
 }
+
+
+/* Hover */
 
 .contact-container button:hover:not(:disabled) {
   background: var(--ochre-deep);
+
+  border-color: var(--ochre-deep);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(27, 43, 34, 0.14);
 }
 
+
+/* Click */
+
 .contact-container button:active:not(:disabled) {
-  transform: scale(0.98);
+  transform: translateY(0);
 }
+
+
+/* Focus */
 
 .contact-container button:focus-visible {
   outline: 2px solid var(--ochre);
-  outline-offset: 2px;
+
+  outline-offset: 3px;
 }
+
+
+/* Disabled */
 
 .contact-container button:disabled {
   opacity: 0.5;
+
   cursor: not-allowed;
 }
 
 
-/* =================================================
-   STATUS TEXT
-================================================= */
+/* =========================================
+   SUCCESS / STATUS MESSAGE
+========================================= */
 
-.contact-container p {
-  margin-top: 20px;
+.contact-container > p {
+  position: relative;
 
-  text-align: center;
+  z-index: 1;
+
+  margin: 25px 0 0;
+
+  padding: 14px 18px;
+
+  background: rgba(47, 82, 51, 0.08);
+
+  border-left: 3px solid var(--moss);
 
   color: var(--moss);
 
-  font-family: 'Fraunces', serif;
-  font-style: italic;
+  font-family: "Fraunces", serif;
+
   font-size: 0.98rem;
+
+  font-style: italic;
+
+  line-height: 1.5;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .contact-container {
+    margin: 60px 25px;
+
+    padding: 55px 35px 40px;
+  }
+
+  .contact-container h1 {
+    font-size: 3.5rem;
+  }
+}
+
+
+@media (max-width: 500px) {
+
+  .contact-container {
+    margin: 40px 15px;
+
+    padding: 45px 22px 30px;
+  }
+
+  .contact-container h1 {
+    margin-bottom: 35px;
+
+    font-size: 3rem;
+  }
+
+  .contact-container input,
+  .contact-container textarea {
+    padding: 13px;
+  }
+
+  .contact-container form div {
+    margin-bottom: 21px;
+  }
+}
+
+
+@media (max-width: 350px) {
+
+  .contact-container {
+    margin: 30px 10px;
+
+    padding: 40px 18px 25px;
+  }
+
+  .contact-container h1 {
+    font-size: 2.6rem;
+  }
 }

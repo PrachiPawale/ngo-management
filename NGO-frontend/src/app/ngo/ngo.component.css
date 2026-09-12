@@ -1,126 +1,276 @@
-/* =========================
-   MAIN PAGE
-========================= */
+/* =========================================
+   NGO PAGE
+========================================= */
 
 .ngo-page {
+  --ink: #1b2b22;
+  --moss: #2f5233;
+  --moss-deep: #16261b;
+  --canvas: #f5f0e3;
+  --cream: #fbf8f0;
+  --ochre: #d9a22c;
+  --ochre-deep: #8a5f13;
+  --sky: #3e7387;
+  --clay: #a6552e;
+
   min-height: 100vh;
-  padding: 50px 7%;
-  background: #f7faf8;
+
+  padding: 100px 30px;
+
   box-sizing: border-box;
+
+  background: var(--canvas);
+
+  color: var(--ink);
+
+  font-family: "Work Sans", sans-serif;
+
+  overflow: hidden;
 }
 
 
-/* =========================
+/* =========================================
    HEADER
-========================= */
+========================================= */
 
 .ngo-header {
+  max-width: 850px;
+
+  margin: 0 auto 75px;
+
   text-align: center;
-  margin-bottom: 35px;
 }
+
 
 .ngo-header h1 {
-  margin: 0 0 12px;
+  position: relative;
 
-  font-size: 42px;
-  font-weight: 700;
+  margin: 0 0 25px;
 
-  color: #1f3d32;
+  color: var(--moss-deep);
+
+  font-family: "Fraunces", serif;
+
+  font-size: clamp(3.2rem, 7vw, 5.8rem);
+
+  font-weight: 400;
+
+  line-height: 0.95;
+
+  letter-spacing: -0.05em;
+
+  transition:
+    color 0.3s ease,
+    letter-spacing 0.4s ease;
 }
+
+
+.ngo-header h1:hover {
+  color: var(--ochre-deep);
+
+  letter-spacing: -0.02em;
+}
+
+
+.ngo-header h1::after {
+  content: "";
+
+  display: block;
+
+  width: 0;
+  height: 3px;
+
+  margin: 24px auto 0;
+
+  background: var(--ochre);
+
+  transition: width 0.5s ease;
+}
+
+
+.ngo-header h1:hover::after {
+  width: 100px;
+}
+
 
 .ngo-header p {
-  max-width: 750px;
+  max-width: 650px;
+
   margin: 0 auto;
 
-  font-size: 16px;
-  line-height: 1.6;
+  color: #59665d;
 
-  color: #65746d;
+  font-family: "Fraunces", serif;
+
+  font-size: 1.2rem;
+
+  font-style: italic;
+
+  line-height: 1.75;
 }
 
 
-/* =========================
+/* =========================================
    SEARCH + FILTER
-========================= */
+========================================= */
 
 .ngo-controls {
-  width: 100%;
+  position: relative;
+
+  max-width: 900px;
+
+  margin: 0 auto 60px;
 
   display: flex;
+
   justify-content: center;
+
   align-items: center;
 
   gap: 15px;
-
-  margin: 0 auto 40px;
 }
 
 
-/* Search */
+/* Decorative line */
+
+.ngo-controls::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  top: 50%;
+
+  height: 1px;
+
+  background: rgba(27, 43, 34, 0.12);
+
+  z-index: 0;
+}
+
+
+/* =========================================
+   SEARCH
+========================================= */
 
 .ngo-search {
-  width: 300px;
-  height: 48px;
+  position: relative;
 
-  padding: 0 18px;
+  z-index: 1;
+
+  width: 330px;
+
+  height: 50px;
+
+  padding: 0 20px;
 
   box-sizing: border-box;
 
-  border: 1px solid #d7e2dc;
-  border-radius: 25px;
+  background: var(--cream);
 
-  background: white;
+  border: 1px solid rgba(27, 43, 34, 0.18);
 
-  font-size: 15px;
-  color: #333;
+  border-radius: 2px;
+
+  color: var(--ink);
+
+  font-family: "Work Sans", sans-serif;
+
+  font-size: 14px;
 
   outline: none;
 
-  transition: 0.2s;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
 }
+
+
+.ngo-search:hover {
+  border-color: rgba(27, 43, 34, 0.35);
+}
+
 
 .ngo-search:focus {
-  border-color: #36734f;
+  background: #fffdf7;
+
+  border-color: var(--ochre);
 
   box-shadow:
-    0 0 0 3px rgba(54, 115, 79, 0.1);
+    0 0 0 3px rgba(217, 162, 44, 0.13);
 }
 
 
-/* Category */
+.ngo-search::placeholder {
+  color: rgba(27, 43, 34, 0.42);
+}
+
+
+/* =========================================
+   CATEGORY FILTER
+========================================= */
 
 .ngo-category-filter {
+  position: relative;
+
+  z-index: 1;
+
   width: 250px;
-  height: 48px;
+
+  height: 50px;
 
   padding: 0 18px;
 
   box-sizing: border-box;
 
-  border: 1px solid #d7e2dc;
-  border-radius: 25px;
+  background: var(--cream);
 
-  background: white;
+  border: 1px solid rgba(27, 43, 34, 0.18);
 
-  font-size: 15px;
-  color: #333;
+  border-radius: 2px;
+
+  color: var(--ink);
+
+  font-family: "Work Sans", sans-serif;
+
+  font-size: 14px;
 
   outline: none;
 
   cursor: pointer;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
+
+
+.ngo-category-filter:hover {
+  border-color: rgba(27, 43, 34, 0.35);
+}
+
 
 .ngo-category-filter:focus {
-  border-color: #36734f;
+  border-color: var(--ochre);
+
+  box-shadow:
+    0 0 0 3px rgba(217, 162, 44, 0.13);
 }
 
 
-/* =========================
+/* =========================================
    NGO GRID
-========================= */
+========================================= */
 
 .ngo-grid {
   width: 100%;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
 
   display: grid;
 
@@ -133,269 +283,534 @@
 }
 
 
-/* =========================
+/* =========================================
    NGO CARD
-========================= */
+========================================= */
 
 .ngo-card {
-  background: white;
+  position: relative;
 
-  border: 1px solid #e5ebe7;
-  border-radius: 16px;
+  display: flex;
+
+  flex-direction: column;
 
   overflow: hidden;
 
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+  background: var(--cream);
 
-  display: flex;
-  flex-direction: column;
+  border: 1px solid rgba(27, 43, 34, 0.12);
+
+  border-radius: 0;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
 }
+
+
+.ngo-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background: var(--moss);
+
+  transform: scaleX(0);
+
+  transform-origin: left;
+
+  transition: transform 0.4s ease;
+
+  z-index: 2;
+}
+
 
 .ngo-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
 
   box-shadow:
-    0 12px 30px rgba(31, 61, 50, 0.1);
+    0 20px 45px rgba(27, 43, 34, 0.14);
 }
 
 
-/* =========================
-   LOGO
-========================= */
+.ngo-card:hover::before {
+  transform: scaleX(1);
+}
+
+
+/* =========================================
+   LOGO AREA
+========================================= */
 
 .ngo-logo-container {
-  height: 190px;
+  position: relative;
+
+  height: 210px;
 
   display: flex;
+
   justify-content: center;
+
   align-items: center;
 
-  background: #edf5ef;
+  background: #e9eee6;
+
+  overflow: hidden;
 }
 
-.ngo-logo {
-  width: 105px;
-  height: 105px;
+
+/* Decorative circle */
+
+.ngo-logo-container::before {
+  content: "";
+
+  position: absolute;
+
+  width: 240px;
+  height: 240px;
+
+  border: 1px solid rgba(27, 43, 34, 0.1);
 
   border-radius: 50%;
+
+  transition:
+    transform 0.7s ease,
+    border-color 0.5s ease;
+}
+
+
+.ngo-card:hover .ngo-logo-container::before {
+  transform: scale(1.12) rotate(15deg);
+
+  border-color: rgba(217, 162, 44, 0.3);
+}
+
+
+/* =========================================
+   NGO LOGO
+========================================= */
+
+.ngo-logo {
+  position: relative;
+
+  z-index: 1;
+
+  width: 115px;
+
+  height: 115px;
+
+  padding: 8px;
+
+  box-sizing: border-box;
 
   object-fit: contain;
 
   background: white;
 
-  padding: 6px;
-
-  box-sizing: border-box;
+  border-radius: 50%;
 
   box-shadow:
-    0 5px 15px rgba(0, 0, 0, 0.1);
+    0 8px 20px rgba(27, 43, 34, 0.12);
+
+  transition:
+    transform 0.4s ease;
 }
 
 
-/* If NGO has no logo */
+.ngo-card:hover .ngo-logo {
+  transform: scale(1.06);
+}
+
+
+/* =========================================
+   LOGO PLACEHOLDER
+========================================= */
 
 .logo-placeholder {
-  width: 105px;
-  height: 105px;
+  position: relative;
+
+  z-index: 1;
+
+  width: 115px;
+
+  height: 115px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
 
   border-radius: 50%;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: var(--cream);
 
-  background: white;
+  color: var(--moss);
 
-  color: #36734f;
+  font-family: "Fraunces", serif;
 
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 25px;
 
   box-shadow:
-    0 5px 15px rgba(0, 0, 0, 0.08);
+    0 8px 20px rgba(27, 43, 34, 0.1);
 }
 
 
-/* =========================
+/* =========================================
    CARD CONTENT
-========================= */
+========================================= */
 
 .ngo-content {
-  padding: 22px;
-
   flex: 1;
 
   display: flex;
+
   flex-direction: column;
+
+  padding: 28px 26px 30px;
 }
+
 
 .ngo-content h2 {
-  margin: 0 0 10px;
+  margin: 0 0 14px;
 
-  font-size: 21px;
-  font-weight: 600;
+  color: var(--moss-deep);
 
-  color: #1f3d32;
+  font-family: "Fraunces", serif;
+
+  font-size: 28px;
+
+  font-weight: 400;
+
+  line-height: 1.1;
+
+  letter-spacing: -0.02em;
+
+  transition: color 0.3s ease;
 }
 
 
-/* =========================
+.ngo-card:hover .ngo-content h2 {
+  color: var(--moss);
+}
+
+
+/* =========================================
    CATEGORY
-========================= */
+========================================= */
 
 .ngo-category {
   align-self: flex-start;
 
-  padding: 6px 12px;
+  margin-bottom: 16px;
 
-  border-radius: 20px;
+  padding: 6px 11px;
 
-  background: #e7f3ea;
+  border-radius: 0;
 
-  color: #36734f;
+  background: rgba(217, 162, 44, 0.12);
 
-  font-size: 12px;
-  font-weight: 600;
+  color: var(--ochre-deep);
 
-  margin-bottom: 14px;
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
 }
 
 
-/* =========================
+/* =========================================
    DESCRIPTION
-========================= */
+========================================= */
 
 .ngo-description {
-  margin: 0 0 15px;
+  margin: 0 0 18px;
 
-  color: #66716c;
+  color: #59665d;
 
   font-size: 14px;
 
-  line-height: 1.6;
+  line-height: 1.75;
 
   display: -webkit-box;
+
   -webkit-line-clamp: 3;
+
   -webkit-box-orient: vertical;
 
   overflow: hidden;
 }
 
 
-/* =========================
+/* =========================================
    INFO
-========================= */
+========================================= */
 
 .ngo-info {
   margin: 6px 0;
 
-  font-size: 14px;
+  color: #68736c;
 
-  color: #555;
+  font-size: 13px;
+
+  line-height: 1.5;
 }
 
 
-/* =========================
+/* =========================================
    VIEW BUTTON
-========================= */
+========================================= */
 
 .view-btn {
-  margin-top: auto;
-
   align-self: flex-start;
 
-  padding: 10px 20px;
+  margin-top: auto;
 
-  border: none;
-  border-radius: 7px;
+  padding: 12px 21px;
 
-  background: #36734f;
+  background: var(--moss-deep);
 
-  color: white;
+  border: 1px solid var(--moss-deep);
 
-  font-size: 14px;
-  font-weight: 500;
+  border-radius: 0;
+
+  color: var(--cream);
+
+  font-family: "Work Sans", sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.04em;
 
   cursor: pointer;
 
-  transition: 0.2s;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
 }
+
 
 .view-btn:hover {
-  background: #285b3d;
+  background: var(--ochre-deep);
 
-  transform: translateY(-1px);
+  border-color: var(--ochre-deep);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 7px 18px rgba(27, 43, 34, 0.14);
 }
 
 
-/* =========================
+.view-btn:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================
    NO NGOs
-========================= */
+========================================= */
 
 .no-ngos {
+  max-width: 900px;
+
+  margin: 20px auto 0;
+
+  padding: 80px 20px;
+
+  background: var(--cream);
+
+  border: 1px dashed rgba(27, 43, 34, 0.2);
+
   text-align: center;
-
-  padding: 70px 20px;
-
-  background: white;
-
-  border: 1px dashed #d6e1da;
-
-  border-radius: 15px;
-
-  margin-top: 10px;
 }
+
 
 .no-ngos-icon {
-  font-size: 35px;
+  margin-bottom: 15px;
 
-  margin-bottom: 10px;
+  color: var(--ochre);
+
+  font-size: 38px;
 }
+
 
 .no-ngos h3 {
-  margin: 0 0 8px;
+  margin: 0 0 10px;
 
-  font-size: 22px;
+  color: var(--moss-deep);
 
-  color: #1f3d32;
+  font-family: "Fraunces", serif;
+
+  font-size: 30px;
+
+  font-weight: 400;
 }
+
 
 .no-ngos p {
   margin: 0;
 
-  font-size: 14px;
+  color: #68736c;
 
-  color: #7b8580;
+  font-size: 14px;
 }
 
 
-/* =========================
+/* =========================================
    RESPONSIVE
-========================= */
+========================================= */
+
+@media (max-width: 900px) {
+
+  .ngo-page {
+    padding: 80px 25px;
+  }
+
+  .ngo-header {
+    margin-bottom: 60px;
+  }
+
+  .ngo-controls {
+    margin-bottom: 45px;
+  }
+
+  .ngo-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* =========================================
+   TABLET / MOBILE
+========================================= */
 
 @media (max-width: 700px) {
 
   .ngo-page {
-    padding: 40px 20px;
+    padding: 70px 20px;
+  }
+
+  .ngo-header {
+    margin-bottom: 50px;
   }
 
   .ngo-header h1 {
-    font-size: 32px;
+    font-size: 3.5rem;
+  }
+
+  .ngo-header p {
+    font-size: 1.05rem;
   }
 
   .ngo-controls {
     flex-direction: column;
+
+    gap: 12px;
+
+    margin-bottom: 40px;
+  }
+
+  .ngo-controls::before {
+    display: none;
   }
 
   .ngo-search,
   .ngo-category-filter {
     width: 100%;
-    max-width: 400px;
+
+    max-width: 450px;
   }
 
   .ngo-grid {
     grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .ngo-logo-container {
+    height: 200px;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .ngo-page {
+    padding: 55px 15px;
+  }
+
+  .ngo-header {
+    margin-bottom: 40px;
+  }
+
+  .ngo-header h1 {
+    font-size: 3rem;
+  }
+
+  .ngo-header p {
+    font-size: 1rem;
+
+    line-height: 1.65;
+  }
+
+  .ngo-content {
+    padding: 25px 22px 27px;
+  }
+
+  .ngo-content h2 {
+    font-size: 26px;
+  }
+
+  .ngo-logo-container {
+    height: 190px;
+  }
+
+  .ngo-logo,
+  .logo-placeholder {
+    width: 105px;
+    height: 105px;
+  }
+
+  .no-ngos {
+    padding: 60px 18px;
+  }
+}
+
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+
+@media (max-width: 350px) {
+
+  .ngo-page {
+    padding: 45px 12px;
+  }
+
+  .ngo-header h1 {
+    font-size: 2.6rem;
+  }
+
+  .ngo-content {
+    padding: 22px 18px 25px;
   }
 }
